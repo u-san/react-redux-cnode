@@ -1,0 +1,17 @@
+.mask {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	background: #fff;
+	z-index: -1;
+	-webkit-transition: opacity .3s linear;
+		 -moz-transition: opacity .3s linear;
+					transition: opacity .3s linear;
+}
+.mask.show {
+	opacity: .8;
+	z-index: 10;
+}
