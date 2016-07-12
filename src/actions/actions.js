@@ -4,13 +4,6 @@ import { APIS } from '../config'
 import utils from '../libs/utils'
 import 'whatwg-fetch'
 
-
-// Object {
-// 	success: true, 
-// 	loginname: "u-san", 
-// 	avatar_url: "https://avatars.githubusercontent.com/u/16940684?v=3&s=120", 
-// 	id: "577e1a2d49e4faa95429c560"}
-
 const defaultTopicsParam = {
 	page: 1,
 	tab: 'all',

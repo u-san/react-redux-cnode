@@ -3,7 +3,7 @@ import React from 'react'
 import { NAV_ITEM } from '../../config'
 
 function getTitle(type) {
-console.log(type)
+
 	let obj = NAV_ITEM.filter(item => item.key === type)
 	let title = ''
 	switch (type) {

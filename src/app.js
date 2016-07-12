@@ -4,7 +4,6 @@ import { Provider } from 'react-redux'
 import Root from './Root'
 import configureStore from './stores/configureStore'
 import './styles/main.less'
-import './styles/iconfont.css'
 
 
 const store = configureStore();
@@ -12,5 +11,5 @@ render(
   <Provider store={store}>
     <Root />
   </Provider>,
-  document.getElementById('wrapper')
+  document.getElementById('app')
 )

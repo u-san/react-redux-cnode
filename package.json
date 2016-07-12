@@ -4,7 +4,8 @@
   "description": "cnode by react",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "cross-env NODE_ENV=production webpack --config webpack.config.prod.js"
   },
   "keywords": [
     "react",
@@ -32,11 +33,13 @@
     "babel-preset-es2015": "~6.0.15",
     "babel-preset-react": "~6.0.15",
     "bundle-loader": "^0.5.4",
+    "cross-env": "^1.0.8",
     "css-loader": "~0.16.0",
     "express": "^4.13.3",
+    "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "~0.8.4",
     "history": "^1.17.0",
-    "html-webpack-plugin": "~1.6.2",
+    "html-webpack-plugin": "^1.6.2",
     "json-loader": "^0.5.3",
     "less": "^2.7.1",
     "less-loader": "^2.2.3",

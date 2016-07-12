@@ -1,6 +1,6 @@
 var webpack = require('webpack');
 var path = require('path');
-console.log(__dirname)
+
 module.exports = {
   entry: [
     'webpack-hot-middleware/client',
@@ -26,7 +26,10 @@ module.exports = {
       alias: {}
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.DefinePlugin({
+      'NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
+    })
   ],
   devtool : 'source-map'
 };
