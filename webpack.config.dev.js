@@ -8,8 +8,7 @@ module.exports = {
   ],
   output: {
     path: path.join(__dirname, 'build'),
-    filename: 'bundle.js',
-    publicPath: '/build/'
+    filename: 'bundle.js'
   },
   module: {
     loaders:[
@@ -28,7 +27,9 @@ module.exports = {
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.DefinePlugin({
-      'NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
+      'process.env':{
+        'NODE_ENV': JSON.stringify('development')
+      }
     })
   ],
   devtool : 'source-map'

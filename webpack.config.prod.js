@@ -3,7 +3,6 @@ var path = require('path');
 
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
-console.log(process.env.NODE_ENV)
 module.exports = {
   entry: './src/app.js',
   output: {
@@ -44,7 +43,9 @@ module.exports = {
       favicon:'./favicon.png'
     }),
     new webpack.DefinePlugin({
-      'NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
+      'process.env':{
+        'NODE_ENV': JSON.stringify('production')
+      }
     })
   ]
 };
