@@ -5,9 +5,9 @@ export default class Login extends Component {
 
 	login() {
 		let val = this.refs.input.value
-		
+
 		if (/^\s*$/.test(this.refs.input.value)) {
-			Tips.info('token不能为空')
+			Tips.info('token不能为空', 1)
 			return
 		}
 

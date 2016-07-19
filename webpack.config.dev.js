@@ -4,11 +4,12 @@ var path = require('path');
 module.exports = {
   entry: [
     'webpack-hot-middleware/client',
-    './src/app.js',
+    './src/scripts/app.js',
   ],
   output: {
     path: path.join(__dirname, 'build'),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+    publicPath: '/__build/'
   },
   module: {
     loaders:[
@@ -16,7 +17,14 @@ module.exports = {
       { test: /\.less$/, loader: 'style!css!less' },
       { test: /\.js[x]?$/, exclude: /node_modules/, loader: 'babel-loader?presets[]=es2015&presets[]=react&plugins[]=transform-object-rest-spread' },
       { test: /\.json$/, loaders: [ 'json' ], exclude: /node_modules/ },
-      { test: /\.(eot|svg|ttf|woff|woff2|png)\w*/, loader: 'file'}
+      {
+        test: /\.(jpe?g|png|gif)$/i,
+        loader: 'url-loader?limit=2&minetype=image/jpg&name=./images/[name]_[hash].[ext]'
+      },
+      {
+        test: /\.(eot|ttf|svg|woff)\??.*$/i,
+        loader: 'file?name=fonts/[name].[ext]'
+      },
     ]
   },
   resolve: {

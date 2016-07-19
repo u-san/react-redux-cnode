@@ -40,7 +40,7 @@ function fetchTopics(dispatch, param, type) {
 function fetchTopic(dispatch, id, type) {
 
 	let url = utils.createUrl(APIS.TOPIC + '/' + id, defaultTopicParam)
-console.log(url)
+
 	fetch(url, {
 		method: 'GET',
 		headers: {

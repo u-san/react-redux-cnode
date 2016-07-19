@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --config webpack.config.prod.js"
+    "build": "webpack --config webpack.config.prod.js",
+    "dev": "webpack-dev-server --history-api-fallback --profile --colors --hot --config webpack.config.dev.js"
+
   },
   "keywords": [
     "react",

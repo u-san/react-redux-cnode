@@ -47,7 +47,7 @@ export default {
 }
 
 window.requestNextAnimationFrame = (function () {
-	console.log(1)
+
   var originalWebkitRequestAnimationFrame = undefined,
       wrapper = undefined,
       callback = undefined,

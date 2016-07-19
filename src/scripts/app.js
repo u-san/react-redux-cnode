@@ -3,7 +3,7 @@ import { render } from 'react-dom'
 import { Provider } from 'react-redux'
 import Root from './Root'
 import configureStore from './stores/configureStore'
-import './styles/main.less'
+import '../styles/main.less'
 
 
 const store = configureStore();

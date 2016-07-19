@@ -5,9 +5,7 @@ let initalState = {loading: true, data: {}};
 export function topic(state = initalState, action) {
 	switch(action.type) {
 		case GET_TOPIC:
-		let obj = Object.assign({}, state, action.data)
-		console.log(obj)
-			return obj;
+			return Object.assign({}, state, action.data);
 		default:
 			return state;
 	}

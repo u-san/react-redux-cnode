@@ -6,7 +6,6 @@ import * as actions from '../actions/actions'
 
 export default class Login extends Component {
 	render() {
-		console.log(this.props)
 		return <LoginSection login={this.props.login} />
 	}
 }

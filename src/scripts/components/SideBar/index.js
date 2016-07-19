@@ -23,7 +23,7 @@ export default class SideBar extends Component {
 
 	render() {
 		let user = this.props.user
-		console.log(user)
+
 		let link = ''
 		let li = NAV_ITEM.map( tag => {
 			if (tag.key === 'message') {
