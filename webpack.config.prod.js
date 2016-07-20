@@ -4,14 +4,11 @@ var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: [
-    'webpack-hot-middleware/client',
-    './src/scripts/app.js',
-  ],
+  entry: './src/scripts/app.js',
   output: {
     path: path.join(__dirname, 'build'),
     filename: 'bundle.js',
-    publicPath: '/'
+    publicPath: './'
   },
   module: {
     loaders:[
@@ -43,6 +40,7 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       template: path.join(__dirname, 'src/index.html'),
+      favicon: './favicon.png',
       inject: 'body'
     }),
     new webpack.DefinePlugin({

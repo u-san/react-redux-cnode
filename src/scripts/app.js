@@ -5,7 +5,6 @@ import Root from './Root'
 import configureStore from './stores/configureStore'
 import '../styles/main.less'
 
-
 const store = configureStore();
 render(
   <Provider store={store}>

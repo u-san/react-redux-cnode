@@ -4,10 +4,7 @@ var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: [
-    'webpack-hot-middleware/client',
-    './src/scripts/app.js',
-  ],
+  entry: './src/scripts/app.js',
   output: {
     path: path.resolve(__dirname, 'build'),
     filename: "[name].js",
@@ -36,7 +33,8 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/index.html'
+      template: './src/index.html',
+      favicon: './favicon.png'
     }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.DefinePlugin({
