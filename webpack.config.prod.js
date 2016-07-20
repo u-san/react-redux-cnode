@@ -11,7 +11,7 @@ module.exports = {
   output: {
     path: path.join(__dirname, 'build'),
     filename: 'bundle.js',
-    publicPath: './'
+    publicPath: '/'
   },
   module: {
     loaders:[
@@ -42,8 +42,8 @@ module.exports = {
       }
     }),
     new HtmlWebpackPlugin({
-      template: path.join(__dirname, 'index.html'),
-      favicon:'./favicon.png/'
+      template: path.join(__dirname, 'src/index.html'),
+      inject: 'body'
     }),
     new webpack.DefinePlugin({
       'process.env':{

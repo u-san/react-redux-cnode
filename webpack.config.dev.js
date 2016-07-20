@@ -1,15 +1,17 @@
 var webpack = require('webpack');
 var path = require('path');
 
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+
 module.exports = {
   entry: [
     'webpack-hot-middleware/client',
     './src/scripts/app.js',
   ],
   output: {
-    path: path.join(__dirname, 'build'),
-    filename: 'bundle.js',
-    publicPath: '/__build/'
+    path: path.resolve(__dirname, 'build'),
+    filename: "[name].js",
+    publicPath: '/'
   },
   module: {
     loaders:[
@@ -33,6 +35,9 @@ module.exports = {
       alias: {}
   },
   plugins: [
+    new HtmlWebpackPlugin({
+      template: './src/index.html'
+    }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.DefinePlugin({
       'process.env':{

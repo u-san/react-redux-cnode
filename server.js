@@ -7,7 +7,14 @@ var app = new (require('express'))()
 var port = 8080
 
 var compiler = webpack(config)
-app.use(webpackDevMiddleware(compiler, {publicPath: config.output.publicPath}))
+app.use(webpackDevMiddleware(compiler, {
+	historyApiFallback: true,
+	publicPath: config.output.publicPath,
+	hot: true,
+  inline: true,
+  progress: true,
+  stats: { colors: true }
+}))
 app.use(webpackHotMiddleware(compiler))
 
 app.get(/.*/, function(req, res) {
