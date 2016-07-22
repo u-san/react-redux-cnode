@@ -6,15 +6,15 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   entry: './src/scripts/app.js',
   output: {
-    path: path.join(__dirname, 'build'),
-    filename: 'bundle.js',
-    publicPath: './'
+    path: path.resolve(__dirname, 'build'),
+    filename: "[name].js",
+    publicPath: '/'
   },
   module: {
     loaders:[
       { test: /\.css$/, loader: 'style!css' },
       { test: /\.less$/, loader: 'style!css!less' },
-      { test: /\.js[x]?$/, exclude: /node_modules/, loader: 'babel-loader?presets[]=es2015&presets[]=react&plugins[]=transform-object-rest-spread' },
+      { test: /\.js[x]?$/, exclude: /node_modules/, loader: 'babel-loader?presets[]=es2015&presets[]=react&presets[]=stage-0' },
       { test: /\.json$/, loaders: [ 'json' ], exclude: /node_modules/ },
       {
         test: /\.(jpe?g|png|gif)$/i,
@@ -39,8 +39,7 @@ module.exports = {
       }
     }),
     new HtmlWebpackPlugin({
-      template: path.join(__dirname, 'src/index.html'),
-      favicon: './favicon.png',
+      template: path.resolve(__dirname, 'src/index.html'),
       inject: 'body'
     }),
     new webpack.DefinePlugin({

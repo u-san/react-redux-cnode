@@ -14,7 +14,7 @@ module.exports = {
     loaders:[
       { test: /\.css$/, loader: 'style!css' },
       { test: /\.less$/, loader: 'style!css!less' },
-      { test: /\.js[x]?$/, exclude: /node_modules/, loader: 'babel-loader?presets[]=es2015&presets[]=react&plugins[]=transform-object-rest-spread' },
+      { test: /\.js[x]?$/, exclude: /node_modules/, loader: 'babel-loader?presets[]=es2015&presets[]=react&presets[]=stage-0' },
       { test: /\.json$/, loaders: [ 'json' ], exclude: /node_modules/ },
       {
         test: /\.(jpe?g|png|gif)$/i,
@@ -33,8 +33,8 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/index.html',
-      favicon: './favicon.png'
+      template: path.resolve(__dirname, 'src/index.html'),
+      inject: 'body'
     }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.DefinePlugin({
