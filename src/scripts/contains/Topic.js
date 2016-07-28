@@ -7,7 +7,6 @@ import TopicContent from '../components/TopicContent'
 import ToTop from '../components/ToTop'
 import * as actions from '../actions/actions'
 
-
 export default class Topic extends Component {
  	componentDidMount() {
  		this.props.actions.getTopic(this.props.params.id)
