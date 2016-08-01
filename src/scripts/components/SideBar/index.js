@@ -15,7 +15,6 @@ export default class SideBar extends Component {
 
 		this.props.actions.hideSideBar()
 
-		// if ( type === 'message' || type === 'about') return
 		if ( type === this.props.type) return
 
 		document.body.scrollTop = 0;
@@ -30,7 +29,7 @@ export default class SideBar extends Component {
 				link = <Link to={'/' + (user.login ? tag.key : 'login')}>{tag.name}</Link>
 			}
 			else {
-				link =<Link to={'/' + tag.key}>{tag.name}</Link>
+				link = <Link to={'/' + tag.key}>{tag.name}</Link>
 			}
 			return (
 				<li className={tag.key} key={tag.key} onClick={() => this.clickHandle(tag.key)}>
@@ -42,12 +41,17 @@ export default class SideBar extends Component {
 		)
 
 		let loginLink = user.login
-					? <Link to={'/user/' + user.data.loginname} >
-						<img className="avatar" src={user.data.avatar_url} />
-						<span>{user.data.loginname}</span>
-					  </Link>
+					? <div>
+						  <Link to={'/user/' + user.data.loginname} >
+							<img className="avatar" src={user.data.avatar_url} />
+							<span>{user.data.loginname}</span>
+						  </Link>
+						  <Link to={'/'}>
+							<i className="iconfont icon-logout btn-logout" onClick={this.props.actions.logout}></i>
+						  </Link>
+					  </div>
 					: <Link to='/login' style={{'textAlign': 'center'}}>
-						<i className='iconfont icon-peoplefill'></i>
+						<i className='iconfont icon-peoplefill btn-login'></i>
 						<span>未登录</span>
 					  </Link>
 
@@ -61,10 +65,3 @@ export default class SideBar extends Component {
 		)
 	}
 }
-
-
-// Object {
-// 	success: true, 
-// 	loginname: "u-san", 
-// 	avatar_url: "https://avatars.githubusercontent.com/u/16940684?v=3&s=120", 
-// 	id: "577e1a2d49e4faa95429c560"}

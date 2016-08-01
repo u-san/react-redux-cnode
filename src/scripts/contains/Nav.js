@@ -7,6 +7,10 @@ import Mask from '../components/Mask'
 import * as actions from '../actions/actions'
 
 export default class Nav extends Component {
+	componentWillMount() {
+		this.props.actions.checkLogin()
+	}
+
 	render() {
 		const pathname = this.props.location.pathname.split('/')[1]
 

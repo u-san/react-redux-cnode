@@ -56,25 +56,28 @@ function fetchTopic(dispatch, id, type) {
 	.catch(res => {console.log(res)})
 }
 
-function fetchLogin(dispatch, accesstoken, type, info) {
+function fetchLogin(dispatch, token, type, sucCb, errCb) {
 	fetch(APIS.LOGIN, {
 		method: 'POST',
 		headers: {
 			'Accept': 'application/json',
 			'Content-Type': 'application/json'
 		},
-		body: JSON.stringify({ accesstoken: accesstoken})
+		body: JSON.stringify({ accesstoken: token})
 	})
 	.then(res => res.json())
 	.then(json => {
 		console.log(json)
 		if (json.success) {
-			info('登录成功')
 			let data = {login: true, data: json}
-			dispatch({type: type, data: data})	
+			dispatch({type: type, data: data})
+			localStorage.setItem('token', token)
+			if (!sucCb) return
+			sucCb(token);
 		}
 		else {
-			info(json.error_msg)
+			if (!errCb) return
+			errCb(json.error_msg)
 		}
 		
 	})
@@ -102,11 +105,25 @@ export function saveScrollX(x) {
 	return { type: Const.SAVE_SCROLLX, scrollX: x }
 }
 
-export function login(accesstoken, info) {
+export function login(token, sucCb, errCb) {
 	return dispatch => {
 		let type = Const.USER_LOGIN
-		fetchLogin(dispatch, accesstoken, type, info)
+		fetchLogin(dispatch, token, type, sucCb, errCb)
 	}
+}
+
+export function checkLogin() {
+	const token = localStorage.getItem('token')
+	if (!token) return { type: Const.USER_LOGOUT}
+	return dispatch => {
+		let type = Const.USER_LOGIN
+		fetchLogin(dispatch, token, type)
+	}
+}
+
+export function logout() {
+	localStorage.removeItem('token')
+	return { type: Const.USER_LOGOUT}
 }
 
 export function showSideBar() {

@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import Tips from '../Tips'
 import './login.less'
-export default class Login extends Component {
 
+export default class Login extends Component {
 	login() {
 		let val = this.refs.input.value
 
@@ -11,7 +11,18 @@ export default class Login extends Component {
 			return
 		}
 
-		this.props.login(val, Tips.info)
+		this.props.login(val, this.successCb, this.errorCb)
+	}
+
+	successCb(token) {
+		Tips.info('登录成功', 1)
+		setTimeout(() => {
+			window.history.go(-1)
+		}, 1000)
+	}
+
+	errorCb(err) {
+		Tips.info('登录失败,' + err, 1)
 	}
 
 	render() {
