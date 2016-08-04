@@ -4,6 +4,7 @@ import { Provider } from 'react-redux'
 import Root from './Root'
 import configureStore from './stores/configureStore'
 import '../styles/main.less'
+import 'react-fastclick';
 
 const store = configureStore();
 render(
