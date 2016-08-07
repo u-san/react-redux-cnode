@@ -1,15 +1,23 @@
 import React, { Component } from 'react'
 import Tips from '../Tips'
+import validator from '../../config/validator'
 import './login.less'
 
 export default class Login extends Component {
 	login() {
 		let val = this.refs.input.value
+		let ret = validator.check(val, [{
+			rule: 'isNonEmpty',
+			errMsg: 'token不能为空'
+		},{
+			rule: 'isToken'
+		}])
 
-		if (/^\s*$/.test(this.refs.input.value)) {
-			Tips.info('token不能为空', 1)
+		if (ret) {
+			Tips.info(ret, 1)
 			return
 		}
+
 
 		this.props.login(val, this.successCb, this.errorCb)
 	}

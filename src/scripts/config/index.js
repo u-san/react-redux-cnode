@@ -1,13 +1,15 @@
 
-let base = 'https://cnodejs.org/api/v1/';
+'use strict'
+
+let baseUrl = 'https://cnodejs.org/api/v1/';
 
 export const APIS = {
-	LIST	: base + 'topics',
-	TOPIC : base + 'topic',
-	NEW		: base + 'topics',
-	LOGIN : base + 'accesstoken',
-	USER  : base + 'user',
-	MSG 	: base + 'messages'
+	LIST  : baseUrl + 'topics',
+	TOPIC : baseUrl + 'topic',
+	NEW	  : baseUrl + 'topics',
+	LOGIN : baseUrl + 'accesstoken',
+	USER  : baseUrl + 'user',
+	MSG   : baseUrl + 'messages'
 }
 
 export const NAV_ITEM = [
