@@ -3,8 +3,7 @@ import { render } from 'react-dom'
 import { Provider } from 'react-redux'
 import Root from './Root'
 import configureStore from './stores/configureStore'
-import '../styles/main.less'
-import 'react-fastclick';
+import '../styles/index.less'
 
 const store = configureStore();
 render(

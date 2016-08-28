@@ -1,6 +1,7 @@
 
 import React from 'react'
 import { NAV_ITEM } from '../../config'
+import './header.less'
 
 function getTitle(type) {
 

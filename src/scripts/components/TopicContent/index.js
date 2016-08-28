@@ -4,7 +4,7 @@ import TopicComment from '../TopicComment'
 import { TAGS } from '../../config'
 import utils from '../../libs/utils'
 import prettyPrint from '../../libs/prettify'
-
+import './topicContent.less'
 
 export default class TopicContent extends Component {
 	componentDidMount() {

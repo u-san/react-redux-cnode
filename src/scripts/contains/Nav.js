@@ -9,6 +9,13 @@ import * as actions from '../actions/actions'
 export default class Nav extends Component {
 	componentWillMount() {
 		this.props.actions.checkLogin()
+		this.hideSideBar = this.hideSideBar.bind(this)
+	}
+
+	hideSideBar(e) {
+		this.props.actions.hideSideBar();
+		// e.stopPropagation();
+		console.log(e.isPropagationStopped())
 	}
 
 	render() {
@@ -18,7 +25,7 @@ export default class Nav extends Component {
 			<div>
 				<Header type={pathname} sideBarShow={this.props.sideBarShow} {...this.props.actions} />
 				<SideBar type={this.props.params.type} {...this.props} />
-				<Mask sideBarShow={this.props.sideBarShow} hideSideBar={this.props.actions.hideSideBar} />
+				<Mask sideBarShow={this.props.sideBarShow} hideSideBar={this.hideSideBar} />
         		{React.cloneElement(this.props.children || <div />, { key: this.props.params.type || 'root'})}
 			</div>
 		)
