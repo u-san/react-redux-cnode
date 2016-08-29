@@ -8,7 +8,9 @@ import './topicContent.less'
 
 export default class TopicContent extends Component {
 	componentDidMount() {
-		document.querySelectorAll('pre').forEach((item) => {
+		let pres = document.querySelectorAll('pre')
+		pres = Array.prototype.slice.call(pres)
+		pres.forEach((item) => {
 			item.classList.add('linenums')
 		})
 		prettyPrint();
