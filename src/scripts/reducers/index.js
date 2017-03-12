@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux'
-import { sideBarShow } from './sideBarShow'
+import { sideBar } from './sideBar'
 import { topics } from './topics'
 import { topic } from './topic'
 import { user } from './user'
 
 const rootReducer = combineReducers({
-	sideBarShow,
+	sideBar,
 	topics,
 	topic,
 	user

@@ -4,18 +4,17 @@ import { connect } from 'react-redux';
 import Header from '../components/Header'
 import SideBar from '../components/SideBar'
 import Mask from '../components/Mask'
-import * as actions from '../actions/actions'
+import actions from '../actions'
 
-export default class Nav extends Component {
+export default class Frame extends Component {
 	componentWillMount() {
+
 		this.props.actions.checkLogin()
 		this.hideSideBar = this.hideSideBar.bind(this)
 	}
 
 	hideSideBar(e) {
 		this.props.actions.hideSideBar();
-		// e.stopPropagation();
-		console.log(e.isPropagationStopped())
 	}
 
 	render() {
@@ -23,10 +22,10 @@ export default class Nav extends Component {
 
 		return (
 			<div>
-				<Header type={pathname} sideBarShow={this.props.sideBarShow} {...this.props.actions} />
+				<Header type={pathname} sideBar={this.props.sideBar} {...this.props.actions} />
 				<SideBar type={this.props.params.type} {...this.props} />
-				<Mask sideBarShow={this.props.sideBarShow} hideSideBar={this.hideSideBar} />
-        		{React.cloneElement(this.props.children || <div />, { key: this.props.params.type || 'root'})}
+				<Mask sideBar={this.props.sideBar} hideSideBar={this.hideSideBar} />
+        		{React.cloneElement(this.props.children || <div />, { key: this.props.params.type || 'root', ...this.props})}
 			</div>
 		)
 	}
@@ -34,8 +33,10 @@ export default class Nav extends Component {
 
 function mapStateToProps(state) {
   return {
-    sideBarShow: state.sideBarShow,
-    user: state.user
+    sideBar: state.sideBar,
+    user: state.user,
+    topic: state.topic,
+    topics: state.topics
   }
 }
 
@@ -48,5 +49,5 @@ function mapDispatchToProps(dispatch) {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Nav)
+)(Frame)
 

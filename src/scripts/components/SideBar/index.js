@@ -56,7 +56,7 @@ export default class SideBar extends Component {
 					  </Link>
 
 		return (
-			<ul className={`sideBar ${this.props.sideBarShow ? 'show' : ''}`}>
+			<ul className={`sideBar ${this.props.sideBar ? 'show' : ''}`}>
 				<li className="login-status" onClick={this.props.actions.hideSideBar}>
 					{loginLink}
 				</li>

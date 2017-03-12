@@ -1,5 +1,4 @@
 
-
 .markdown-body {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -13,10 +12,12 @@
 
 .markdown-body a {
   background: transparent;
+  color: #4183c4;
+  text-decoration: none;
 }
 
-.markdown-body a:active,
-.markdown-body a:hover {
+.markdown-body a:hover,
+.markdown-body a:active {
   outline: 0;
 }
 
@@ -47,14 +48,12 @@
   color: inherit;
   font: inherit;
   margin: 0;
+  line-height: normal;
+  font: 13px/1.4 Helvetica, arial, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
 .markdown-body html input[disabled] {
   cursor: default;
-}
-
-.markdown-body input {
-  line-height: normal;
 }
 
 .markdown-body input[type="checkbox"] {
@@ -78,20 +77,6 @@
   box-sizing: border-box;
 }
 
-.markdown-body input {
-  font: 13px/1.4 Helvetica, arial, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
-}
-
-.markdown-body a {
-  color: #4183c4;
-  text-decoration: none;
-}
-
-.markdown-body a:hover,
-.markdown-body a:active {
-  text-decoration: underline;
-}
-
 .markdown-body hr {
   height: 0;
   margin: 15px 0;
@@ -110,41 +95,6 @@
   display: table;
   clear: both;
   content: "";
-}
-
-.markdown-body h1,
-.markdown-body h2,
-.markdown-body h3,
-.markdown-body h4,
-.markdown-body h5,
-.markdown-body h6 {
-  margin-top: 15px;
-  margin-bottom: 15px;
-  line-height: 1.1;
-}
-
-.markdown-body h1 {
-  font-size: 30px;
-}
-
-.markdown-body h2 {
-  font-size: 21px;
-}
-
-.markdown-body h3 {
-  font-size: 16px;
-}
-
-.markdown-body h4 {
-  font-size: 14px;
-}
-
-.markdown-body h5 {
-  font-size: 12px;
-}
-
-.markdown-body h6 {
-  font-size: 11px;
 }
 
 .markdown-body blockquote {
@@ -335,14 +285,6 @@
   margin-bottom: 16px;
 }
 
-/*
-.markdown-body hr {
-  height: 4px;
-  padding: 0;
-  margin: 16px 0;
-  background-color: #e7e7e7;
-  border: 0 none;
-}*/
 .markdown-body ul,
 .markdown-body ol {
   padding-left: 2em;
